@@ -57,7 +57,7 @@ public static void printBooks(Book[] books, int fromYear, int toYear){
         System.out.println("Title: " + books[i].getTitle());
         System.out.println("Year: " + books[i].getYear());
         System.out.println("=======^A^=======\n");
-} } else {System.out.println("No pulications on this period"); break;}
+} } else {System.out.println("No publications on this period"); break;}
     }
 } 
 }
