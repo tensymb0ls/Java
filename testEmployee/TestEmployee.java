@@ -19,7 +19,7 @@ class TestEmployee {
     employees[5] = m6;
     
     //printArr(employees);
-    printArr(employees, "SalaryEmployee");
+    printArr(employees, "Manager");
     
     }
 
