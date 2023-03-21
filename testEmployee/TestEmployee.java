@@ -23,17 +23,21 @@ class TestEmployee {
     }
 
   public static void printArr(Employee[] array){
-     for(int i = 0; i < array.length; i++){
+     if(array == null){
+      System.out.println("Array is null");
+     }  for(int i = 0; i < array.length; i++){
      System.out.println(array[i]);
     }
     System.out.println("_____________________");
     double sum = 0;
+    int count = 0;
     for(int i = 0; i < array.length; i++){
       sum += array[i].calcSalary();
+      count++;
       }
       System.out.println("Total salary: " + sum);
       System.out.println("_____________________");
-      System.out.println("Average salary: " + sum/array.length);
+      System.out.println("Average salary: " + sum/count);
   }
 }
 
