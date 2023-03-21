@@ -18,26 +18,62 @@ class TestEmployee {
     employees[4] = m5;
     employees[5] = m6;
     
-    printArr(employees);
+    //printArr(employees);
+    printArr(employees, "SalaryEmployee");
     
     }
 
-  public static void printArr(Employee[] array){
-     if(array == null){
-      System.out.println("Array is null");
-     }  for(int i = 0; i < array.length; i++){
-     System.out.println(array[i]);
-    }
-    System.out.println("_____________________");
-    double sum = 0;
-    int count = 0;
-    for(int i = 0; i < array.length; i++){
-      sum += array[i].calcSalary();
-      count++;
-      }
-      System.out.println("Total salary: " + sum);
-      System.out.println("_____________________");
-      System.out.println("Average salary: " + sum/count);
-  }
+ public static void printArr(Employee[] array) {
+		if(array == null) {
+		System.out.println("Error! array is null!");
+		}
+		double sum = 0;
+		int count = 0;
+		
+		for(int i = 0; i < array.length; i++) {
+			if(array[i] != null) {
+				sum += array[i].calcSalary();
+				count++;
+				System.out.println(array[i].toString());
+			}
+		}
+		System.out.println("===================");
+		System.out.println("Total: " + sum);
+		System.out.println("Avg: " + (sum / count));
+	}
+	
+  public static void printArr(Employee[] array, String type) {
+		double sum = 0;
+		int count = 0;
+		
+		for(int i = 0; i < array.length; i++) {
+			switch(type) {
+			case "SalaryEmployee":
+				if(array[i] instanceof SalaryEmployee && !(array[i] instanceof Manager) ) {
+					sum += array[i].calcSalary();
+					count++;
+					System.out.println(array[i].toString());
+				}
+				break;
+			case "Manager": 
+				if(array[i] instanceof Manager) {
+					sum += array[i].calcSalary();
+					count++;
+					System.out.println(array[i].toString());
+				}
+				break;
+			case "WageEmployee":
+				if(array[i] instanceof WageEmployee) {
+					sum += array[i].calcSalary();
+					count++;
+					System.out.println(array[i].toString());
+				}
+				break;
+		}
+	}
+		System.out.println("==========================");
+		System.out.println("Total: " + sum);
+		System.out.println("Avg: " + (sum / count));
+}
 }
 
